@@ -71,7 +71,7 @@ public class RenderBatch {
     }
 
     public void addSprite(SpriteRenderer spr) {
-        // Get index and add RederObject
+        // Get index and add RenderObject
         int index = this.numSprites;
         // [0, 1, 2, 3, 4, 5]
         this.sprites[index] = spr;
@@ -123,7 +123,7 @@ public class RenderBatch {
         for (int i=0; i < 4; i++) {
             if (i == 1) {
                 yAdd = 0.0f;
-            } else if (i ==2) {
+            } else if (i == 2) {
                 xAdd = 0.0f;
             } else if (i == 3) {
                 yAdd = 1.0f;
@@ -139,7 +139,7 @@ public class RenderBatch {
             vertices[offset + 4] = color.z;
             vertices[offset + 5] = color.w;
 
-            offset *= VERTEX_SIZE;
+            offset += VERTEX_SIZE;
         }
     }
 
@@ -168,5 +168,9 @@ public class RenderBatch {
         elements[offsetArrayIndex + 2] = offset + 2;
         elements[offsetArrayIndex + 2] = offset + 1;
 
+    }
+
+    public boolean hasRoom() {
+        return this.hasRoom;
     }
 }
